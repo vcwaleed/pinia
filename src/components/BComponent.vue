@@ -3,9 +3,6 @@ import {UseCouterStore } from '../stores/counter.js'
 import {storeToRefs,} from 'pinia'
 const store = UseCouterStore();
 const {doubleCount} =storeToRefs(store);
-// store.$patch({
-//     count:10
-// })
 store.$patch((state)=>{
     state.items.push('mobile');
     state.count=30

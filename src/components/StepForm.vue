@@ -2,10 +2,13 @@
 import { storeToRefs } from 'pinia';
 import { useStepFormStore } from '@/stores/stepForm';
 import { UseCouterStore } from '../stores/counter.js';
+import { UseCalculatedState } from '@/stores/calculated.js';
 
 const stepFormStore = useStepFormStore();
 const counter = UseCouterStore();
+const cal =UseCalculatedState();
 const { step, formData } = storeToRefs(stepFormStore);
+
 </script>
 
 <template>
@@ -25,7 +28,7 @@ const { step, formData } = storeToRefs(stepFormStore);
         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Step 1: Enter User Details</h2>
         <input v-model="formData.name" class="input-field" placeholder="Enter your name" />
         <input v-model="formData.email" class="input-field" placeholder="Enter your email" />
-        <input v-model="counter.count" class="input-field" placeholder="Enter count" />
+        <input v-model="cal.f" class="input-field" placeholder="Enter count" />
 
         <div class="flex justify-end mt-4">
           <button @click="step.current = 2" class="btn-primary">Next</button>
